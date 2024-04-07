@@ -1,16 +1,18 @@
+<!-- templates/ki_polls/question_list.html -->
+<!-- ki_polls/templates/ki_polls/question_list.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Question List</title>
+    <title>Category List</title>
 </head>
 <body>
     <h1>Category List</h1>
 
     <ul>
         {% for question in question_list %}
-            <li><a href="{% url 'ki_polls:choice_list' pk=question.pk %}">{{ question.category }}</a></li>
+            <li><a href="{% url 'ki_polls:choice_list' category=question.category %}">{{ question.category }}</a></li>
         {% endfor %}
     </ul>
 </body>

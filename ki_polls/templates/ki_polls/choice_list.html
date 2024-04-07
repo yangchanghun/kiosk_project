@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choice List</title>
-</head>
-<body>
-    <h1>Choice List</h1>
-    <ul>
-        {% for choice in choice_list %}
-            <li>Name: {{ choice.name }}, Price: ${{ choice.price }}, Question: {{ choice.question.category }}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+<h1>Category List</h1>
+<ul>
+    {% for question in question_list %}
+        <li><a href="{% url 'ki_polls:choice_list' category=question.category %}">{{ question.category }}</a></li>
+    {% endfor %}
+</ul>
+
+<h1>Choice List</h1>
+<ul>
+    {% for choice in choices %}
+        <li>Name: {{ choice.name }}, Price: ${{ choice.price }}, Category: {{ choice.question.category }}</li>
+    {% endfor %}
+</ul>

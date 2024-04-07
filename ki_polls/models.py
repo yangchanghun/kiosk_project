@@ -23,7 +23,7 @@ class KioskOrder(models.Model):
 
 class BeverageOrder(models.Model):
     kiosk_order = models.ForeignKey(KioskOrder, related_name='beverage_orders', on_delete=models.CASCADE)
-
+    
     choice = models.ForeignKey(Choice, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=0)
     ordered_at = models.DateTimeField(auto_now_add=True)
